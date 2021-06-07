@@ -1,0 +1,11 @@
+Get http://localhost:3001/api/pickban
+###
+Post http://localhost:3001/api/pickban
+Content-Type: application/json
+
+{
+    "maps": ["Cliff", "Himmelsdorf", "Murovanka", "Prokhorovka", "Sand River", "Steppes", "Tundra"],
+    "totalGames": 9,
+    "playersPerTeam" : 15,
+    "gamesPerSide" : 1
+}
