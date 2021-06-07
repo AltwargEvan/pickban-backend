@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const pickbanSchema = new mongoose.Schema({
+const matchSchema = new mongoose.Schema({
   maps: {
     type: [String]
   },
@@ -19,10 +19,16 @@ const pickbanSchema = new mongoose.Schema({
   tankPicking: {
     type: Boolean,
     default: false
+  },
+  teamA: {
+    type: mongoose.Schema.Types.ObjectId,
+  },
+  teamB: {
+    type: mongoose.Schema.Types.ObjectId,
   }
 })
 
-pickbanSchema.set('toJSON', {
+matchSchema.set('toJSON', {
   transform: (document, returnedObject) => {
     returnedObject.id = returnedObject._id.toString()
     delete returnedObject._id
@@ -30,4 +36,4 @@ pickbanSchema.set('toJSON', {
   }
 })
 
-module.exports = mongoose.model('PickBan', pickbanSchema)
+module.exports = mongoose.model('Match', matchSchema)
